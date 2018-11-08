@@ -1,6 +1,6 @@
 # Sharedcloud-tunnel-client
 
-This repository represents the client side of the tunnel in charge of creating the connections with the instances
+Client side of the tunnel used by `Sharedcloud-cli` and in charge of creating the connections with the instances.
 
 ### Use
 
@@ -17,16 +17,18 @@ The following ENV vars need to be passed when creating the Docker container:
 
 For example:
 ```
-docker run --rm --name sharedcloud-tunnel-client -e SERVER_ADDR=77.34.22.187 \
-                                                 -e SERVER_PORT=7000 \
-                                                 -e LOCAL_IP=0.0.0.0 \
-                                                 -e LOCAL_PORT=8001 \
-                                                 -e HTTP_USER=admin \  # Optional
-                                                 -e HTTP_PWD=password \  # Optional
-                                                 -e CUSTOM_DOMAINS=77.34.22.187 \
-                                                 -e TOKEN=1234554321 \  # Optional
-                                                 -e USER=user1 \
-                                                 -e USE_ENCRYPTION=true \
-                                                 -e USE_COMPRESSION=true \
-                                                 sharedcloud-tunnel-client
+>>> docker build . -t sharedcloud-tunnel-client
+
+>>> docker run --rm --name sharedcloud-tunnel-client -e SERVER_ADDR=77.34.22.187 \
+                                                     -e SERVER_PORT=7000 \
+                                                     -e LOCAL_IP=0.0.0.0 \
+                                                     -e LOCAL_PORT=8001 \
+                                                     -e HTTP_USER=admin \  # Optional
+                                                     -e HTTP_PWD=password \  # Optional
+                                                     -e CUSTOM_DOMAINS=77.34.22.187 \
+                                                     -e TOKEN=1234554321 \  # Optional
+                                                     -e USER=user1 \
+                                                     -e USE_ENCRYPTION=true \
+                                                     -e USE_COMPRESSION=true \
+                                                     -d sharedcloud-tunnel-client
 ```
